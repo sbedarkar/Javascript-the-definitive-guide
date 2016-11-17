@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Objects</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="mystyle.css">
+        <script type="text/javascript" src="objects.js"></script>
+        
+    </head>
+    <body>
+        <div class="box">
+            <h1>Type of objects:</h1>
+            <ul>
+                <li>Native objects : objects defined by the language like array, functions, date, regular expressions</li>
+                <li>Host Objects : objects defined by the host environment where javascript is embedded like HTML objects</li>
+                <li>User defined objects : objects defined by the user!</li>
+            </ul>
+            <h1>Creating an object</h1>
+            <ul>
+                <li>new : var o1 = new Object();</li>
+                <li>Object.create() : var o2 = Object.create(arg1, arg2);<br>
+                arg1 as prototype of the object<br>
+                arg2?????????</li>
+            </ul> 
+            <em>Example : Creating a new object inheriting from prototype???????</em>
+            
+            <p><em>Portfolio</em> : a range of investments held by a person. <br>
+            That means Rohan Bedarkar 's portfolio has x worth mutual funds.<br>
+            mutual funds are type of investments and x the value</p>
+            </div>
+        <div class="box">
+            <h1>Inheritance</h1>
+            <p>var o = new Object();<br>
+                 o.x = 1;<br>
+                 var p =  inherit(o);<br>
+                 p.y = 2;<br>
+                 var q = inherit(p);<br>
+                 q.z = 3;<br>
+                 var s = q;<br>
+                 Print at properties of s : <span id="demo1"></span><br>
+                 q.x + q.y;   <span id="demo2"></span><br>
+                 s.y + s.z;   <span id="demo3"></span><br>
+            Accessing undefined properties :<span id="demo4"></span> </p>
+            <button onclick="inheritance()">Click to see the result !</button>
+            
+            
+            
+        </div>
+    </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOcTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Expressions</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="mystyle.css">
+        <script src="javascript_concepts.js"></script>
+        
+    </head>
+    <body>
+        
+        <div>
+            <h1>Factorial</h1>
+            <p id='p1'>
+                function factorial(n){<br>
+                for(var i=n-1; i>0; i--){<br>
+                n = n*i;<br>
+                }<br>
+            </p>
+            <form action="demo_form.asp">
+                Calling factorial function : Enter a number  <input type="text" name="number"><br>
+                <br>The factorial of <span id="demo"></span> is :<span id="demo1"></span>
+            </form><br>
+           <button onclick="factorial()">Click to see the result !</button>    
+           <h1>for/in</h1>
+           <p id="p2">for/in is typically used to iterate through object!<br>
+              function forin(){<br>
+                Object declaration<br>
+                var rectangle = {upperLeft : {x: 2, y: 4},<br>
+                    lowerRight: {x: 4, y: 5}};<br>
+                var st = "";      <br>
+                using for/in to print<br> 
+                for(var p in rectangle){<br>
+                st += p+": <span></span>{"; <br>
+                for(var q in rectangle[p] ){<br>
+                    st += q+" : "+(rectangle[p])[q]+<span></span>;<br>
+                    }<br>
+               st +="}<br>";
+        
+                }<br>
+                document.getElementById("demo2").innerHTML = st; : <span id="demo2"></span><br>
+              }
+           </p>
+            <div style="width:400px;height:200px;border:1px solid red;">rectangle!
+                <div style="width:250px;height:80px;border:1px solid green; margin-left: 50px">upperLeft 
+                    <div style="width:50px;height:25px;border:1px solid blue;margin-left: 100px">x:2
+                    </div>
+                    <div style="width:50px;height:25px;border:1px solid blue;margin-left: 100px">y:4
+                    </div>
+                </div>    
+                <div style="width:250px;height:80px;border:1px solid green; margin-left: 50px">lowerRight 
+                    <div style="width:50px;height:25px;border:1px solid blue;margin-left: 100px">x:4
+                    </div>
+                    <div style="width:50px;height:25px;border:1px solid blue;margin-left: 100px">y:5
+                    </div>
+                    
+                </div>
+            </div>   
+           
+           <p id="p3">for in with array a = [1,'#','c'];<br>
+               <span id="demo4"></span><br>
+               <span id="demo3"></span></p>
+           <button onclick="forin()" >Click to see the result !</button>
+           
+           <h1>Jump statements</h1>
+           <p id="p4">like : labeled, break, continue, return, try/catch/finally<br>
+           example to illustrate break and labeled statements: 
+            </p>
+           <form>
+               Enter a number between 0 to 10 : <input type="text" name="input"> 
+               verifying for correctness of input!    <span id="demo5"></span>
+           </form>
+            <br>
+            <br>
+            <em>Break statements can not transfer control across function boundaries </em>
+            
+           
+            
+            <button onclick="jumpStatements()">Click to see the result !</button>
+            
+            <P id="p5">This example calls a function which returns the value of PI:</p>
+       
+                    
+            <button onclick="myFunction()">Click to see the result !</button>
+             
+         </div>
+        
+        
+    </body>
+</html>

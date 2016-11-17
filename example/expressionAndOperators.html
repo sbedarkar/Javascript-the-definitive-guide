@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Expressions And Operators</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="mystyle.css">
+        <script src ="javascript_concepts.js"></script>
+    </head>
+    <body>
+        <div>
+        <h1>Expression</h1>
+        <p>A phrase that a javascript interpreter can evaluate to produce a value.</p>
+        <p><em>this keyword:</em> Within the body of a method this evaluates to the objecton which the method was invoked!</p>
+        <h1> Object and Array initializer</h1>
+        <p>Array initializer:</p><br>
+        <ul>
+            <li>var a = [1,2,3];</li>
+            <li>var matrix = [[1,2,3],[4,5,6],[7,8,9]];</li>
+            <li>var sparseArray = [1,,,,5]</li>
+        </ul>
+        
+        <p>sparseArray  : &nbsp;<span id="demo1"></span></p>
+        <p>matrix  : &nbsp;<br><span id="demo2"></span></p>
+        <button onclick="arrayInitializer()">Click to see the result ! </button>
+        
+        <p>Object initialzer :</p>
+        <ul>
+            <li>var p = { x: 2.3, y: -1.2};</li>  
+            <li>var q = {};<br>
+                q.x = 2.3; q.y = -1.2;</li>
+            <li>var rectangle = {upperLeft : {x: 2, y: 4}<br>
+                &nbsp;&nbsp;&nbsp;lowerRight: {x: 4, y: 5}};</li>
+            <li>var side = 1;<br>
+                var square = {"upperLeft" : {x: p.x, y: p.y}<br>
+                &nbsp;&nbsp;&nbsp;'lowerRight': {x: p.x + side, y: p.y + side}};</li>
+        </ul>
+        <p>p.x: &nbsp;<span id="demo3"></span> &nbsp;&nbsp;p.y: <span id="demo4"></span></p>
+        <p>q.x: &nbsp;<span id="demo5"></span> &nbsp;&nbsp;q.y: <span id="demo6"></span></p>
+        <p>rectangle.upperLeft.x: &nbsp;<span id="demo7"></span> &nbsp;&nbsp;rectangle.upperLeft.y: <span id="demo8"></span></p>
+        <p>rectangle.lowerRight.x: &nbsp;<span id="demo9"></span> &nbsp;&nbsp;rectangle.lowerRight.y: <span id="demo10"></span></p>
+        <p>square.upperLeft.x: &nbsp;<span id="demo11"></span> &nbsp;&nbsp;square.upperLeft.y: <span id="demo12"></span></p>
+        <p>square.lowerRight.x: &nbsp;<span id="demo13"></span> &nbsp;&nbsp;square.lowerRight.y: <span id="demo14"></span></p>
+        <button onclick="objectInitialzer()">Click to see the result ! </button>
+        
+        <p><em>lvalue : </em> historical term that means "an expression that can legally appear on the left side of an assignment expression."<br>
+        In javascript variables, properties of objects and elements of array are lvalues.</p>
+        
+        <h1>Operator Association</h1>
+        <p>It specifies the order in which the operators of the same precedence are performed. Left-to-right association<br>
+            means that operations are performed from left to right. Example: <br>
+        left-to-right</p>
+        <ul>
+            <li>w = x - y - z; ==== is same as ==== ((x - y) - z);</li>
+        </ul>
+        <p>right-to-left</p>
+        <ul>
+            <li>x = ~-y; ==== is same as ==== x = ~(-y);</li>
+            <li>w = x = y = z; ===== is same as ==== w = (x = (y = z)); </li>
+            <li>q = a?b:c?d:e?f:g; ==== is same as ==== q = (a?b:(c?d:(e?f:g)));</li>
+        </ul>
+        <em>Order of evaluation only makes a difference if any of the subexpressions have a side effect that affects other expression! </em>
+        <h1>Arithmetic Expressions : </h1>
+        <p>If any of the operands is a NaN the result of that arithmetic operation would be NaN. In javascript all numbers are floating point numbers.<br>
+            Thus all results of / operation are floating point numbers : </p>
+        <ul> 
+            <li>/</li>
+            <li>5/2  = <span id="demo15"></span></li> 
+            <li>5/0  = <span id="demo16"></span></li>
+            <li>0/0  = <span id="demo17"></span></li>
+            <li>%</li>
+            <li>5%2  = <span id="demo18"></span></li>
+            <li>-5%2  = <span id="demo19"></span></li>
+            <li>5%(-2)  = <span id="demo20"></span></li>
+            <li>6.5%2.1  = <span id="demo21"></span></li>
+        </ul>
+        <button onclick="arithmeticExpressions()">Click to see the result ! </button>
+        <h1>+ operator</h1>
+        <p>The conversion rules for + gives priority to string concatenation: </p>
+        <ol>
+            <li>If ether operands are objects: it converts to primitives using either toString() or valueOf() </li>
+            <li>After object-to-primitive if either operand is string the other is converted to String and string concatenation is performed.</li>
+            <li>Otherwise both operands are converted to numbers or NaN and addition is performed.</li>
+        </ol>
+        <ul> 
+            <li>+</li>
+            <li>1 + 2  = <span id="demo22"></span></li> 
+            <li>"1" + "2"  = <span id="demo23"></span></li>
+            <li>"1"  + 2 = <span id="demo24"></span></li>
+            <li>1 + {}  = <span id="demo25"></span></li>
+            <li>true + true  = <span id="demo26"></span></li>
+            <li>2 + null  = <span id="demo27"></span></li>
+            <li>2 + undefined  = <span id="demo28"></span></li>
+            <li>1 + 2 + "blind mice"  = <span id="demo29"></span></li>
+            <li>1 + (2 + "blind mice")  = <span id="demo30"></span></li>
+        </ul>
+        <button onclick="addition()">Click to see the result ! </button>
+        <h1>pre and post increment operators</h1>
+        <p> pre increment operator: increases the value of variable first and then uses it. <br>
+        var i = 1,j,k;<br>
+        j = ++i;<br>
+        i = <span id="demo31"></span><br>
+        j = <span id="demo32"></span><br>
+        now: in post increment, it increments the value but uses the un-incremented value<br>
+        i = 1;<br>
+        k = i++;<br>
+        i = <span id="demo33"></span><br>
+        k = <span id="demo34"></span><br>
+        <em>Since javascript has automatic semicolon insertion, we can not insert a line break between post increment operators and the operand. <br>
+        If you do it treats the operand as a complete statement by itself and inserts semicolon before it. </em><br>
+        </p>
+        <button onclick="prePostIncrementOperators()"> Click to see the result ! </button>
+        <h1>in operator</h1>
+        <em>It expects left operand to be a string or something that can be converted to string and right operand to be an object</em>
+        <p>var point = { x:1, y:1};<br>
+            "x" in point = <span id='demo35'></span><br>
+            "z" in point = <span id='demo36'></span><br>
+            x in point = <span id='demo37'></span><br>
+            1 in point = <span id='demo38'></span><br><br>
+        var data = [7,8,9];<br>
+        "0" in data = <span id='demo39'></span><br>
+        1 in data = <span id='demo40'></span><br>
+        3 in data = <span id='demo41'></span><br>
+        7 in data = <span id='demo42'></span><br>    
+        </p>
+        <button onclick="inOperator()">Click to see the result !</button>
+        
+        </div>
+        
+        
+    </body>
+</html>

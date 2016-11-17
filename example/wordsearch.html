@@ -1,0 +1,50 @@
+<!DOCTYPE html >
+<!--http://codereview.stackexchange.com/questions/6347/better-find-and-highlight-implementation-in-html-element
+http://codereview.stackexchange.com/questions/6347/better-find-and-highlight-implementation-in-html-element
+http://127.0.0.1/SwatiPhpProjects/RamaBedarkar/php/home.php-->
+<head>
+<style>
+  span.highlight{background:yellow; padding:3px;}
+</style>
+</head>
+<body>
+<input type="search"/>
+<p>The Amazon.com Store Card is issued by GE Capital Retail Bank. If you have questions about the Amazon.com Store Card, call 1-866-634-8379, available 24 hours a day. The Amazon.com Store Card can be used for any purchase at Amazon.com with the exception of Amazon Prime memberships, digital newspaper and magazine subscriptions, and games and software downloads.
+
+1. Note: To immediately use your card to place an order to an address that is not currently on your Amazon.com account, please add the address to your Amazon.com account before applying for the Amazon.com Store Card. To add an address, visit the Address Book.
+
+2. No Annual Fee: As of August 1, 2011 variable Standard purchase APR is 25.99%. Minimum interest charge is $1.50.
+
+3. 6-Month Financing Offer: No interest if paid in full within 6 months. Interest will be charged to your account from the purchase date if the promotional balance is not paid in full within 6 months. Minimum monthly payments required. Offer is subject to credit approval. Applies to any order total of $149 or more made between 10/01/11 and 12/31/11 on an Amazon.com Store Card account. 1-Click and phone orders do not apply to this promotion. Items sold on Amazon.com by third party sellers qualify for this offer. No interest will be assessed on the promotional purchase if you pay the following (the "promotional balance") in full within 6 months: (1) the promotional purchase amount, and (2) any optional debt cancellation charges related to the promotional purchase. If you do not, interest will be assessed on the promotional balance from the date of the purchase. Regular account terms apply to non-promotional purchases and, after this promotion ends, to your promotional purchases. For new accounts: Standard variable purchase APR is 25.99%. Minimum interest charge is $1.50. The APR is accurate as of August 1, 2011 and will vary with the market based on the Prime Rate (as defined in your credit card agreement). Existing cardholders should see their credit card agreement for their applicable terms.
+
+4. 12-Month Financing Offer: No interest if paid in full within 12 months. Interest will be charged to your account from the purchase date if the promotional balance is not paid in full within 12 months. Minimum monthly payments required. Offer is subject to credit approval. Applies to any order total of $599 or more made between 10/01/11 and 12/31/11 on an Amazon.com Store Card account. 1-Click and phone orders do not apply to this promotion. Items sold on Amazon.com by third party sellers qualify for this offer. No interest will be assessed on the promotional purchase if you pay the following (the "promotional balance") in full within 12 months: (1) the promotional purchase amount, and (2) any optional debt cancellation charges related to the promotional purchase. If you do not, interest will be assessed on the promotional balance from the date of the purchase. Regular account terms apply to non-promotional purchases and, after this promotion ends, to your promotional purchases. For new accounts: Standard variable purchase APR is 25.99%. Minimum interest charge is $1.50. The APR is accurate as of August 1, 2011 and will vary with the market based on the Prime Rate (as defined in your credit card agreement). Existing cardholders should see their credit card agreement for their applicable terms.
+
+5. 24-Month Financing Offer: No interest if paid in full within 24 months. Interest will be charged to your account from the purchase date if the promotional balance is not paid in full within 24 months. Minimum monthly payments required. Offer is subject to credit approval. Applies to any order total that includes an advertised eligible product sold by Amazon.com made between 10/01/11 and 12/31/11 on an Amazon.com Store Card account ("Qualifying Purchase"). 1-Click and phone orders do not apply to this promotion. Any purchase of products sold on Amazon.com by third-party sellers do not count as a Qualifying Purchase but may receive the benefit of this offer if on the same order as a Qualifying Purchase. No interest will be assessed on the promotional purchase if you pay the following (the "promotional balance") in full within the required promotional period: (1) the promotional purchase amount, and (2) any optional debt cancellation charges related to the promotional purchase. If you do not, interest will be assessed on the promotional balance from the date of the purchase. Depending on the length of the promotional period and the amount of the promotional purchase, the required minimum payment may pay off the promotional purchase before the end of the promotional period. Regular account terms apply to non-promotional purchases and, after this promotion ends, to your promotional purchases. For new accounts: Standard variable purchase APR is 25.99%. Minimum interest charge is $1.50. The APR is accurate as of August 1, 2011 and will vary with the market based on the Prime Rate (as defined in your credit card agreement). Existing cardholders should see their credit card agreement for their applicable terms.
+
+6. Zero Fraud Liability: You will not be held liable in the event of unauthorized use. You agree that unauthorized use does not include use by a person to whom you have given authority to use the Account or Card and that you will be liable for all use by such a person.</p>
+<script>
+var s = document.querySelector('input[type="search"]'),
+    p = document.querySelector('p'),
+    find = function(){
+        var words = p.innerText.split(' '),
+            i = words.length,
+            word = '';
+
+        while(--i) {
+            word = words[i];
+            if(word.toLowerCase() === s.value.toLowerCase()){
+                words[i] = '<span class="highlight">' + word + "</span>";
+            }
+            else{
+
+            }   
+        }
+
+        p.innerHTML = words.join(' ');
+    }
+
+s.addEventListener('keydown', find , false);
+s.addEventListener('keyup', find , false);
+</script>
+</body>
+</html>
