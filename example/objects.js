@@ -4,25 +4,64 @@
  * and open the template in the editor.
  */
 try{
- var portfolio = new Object();
- portfolio.mutualfund ,portfolio.shares;
- 
- function addstock(portfolio, mutualfund, shares)
+    var portfolio = {
+        stockname: []
+    };
+
+ function printObject()
  {
-     portfolio[mutualfund] = shares;
+    var count = 0;
+    for( var i in portfolio)
+    {
+        console.log("1. "+portfolio[i]);
+    }
+ }
+ function addstock()
+ {
+
+    var name = document.getElementsByName("stockname");
+    var number = document.getElementsByName("numberOfStockes");
+    (portfolio.stockname).push(name[0].value, number[0].value);
+     printObject();
  }
  function getquotes(stock){
+    //make ajax request from google to find current rate
+     var IBM = 163.34;
+     var GOOGLE = 789.94;
+     var ICE = 54.23;
+     var price = 0.0;
+
      
+
+     switch ((stock.toString()).toUpperCase()){
+        case "IBM":
+            price = 163.34;
+            break;
+        case "google":
+            price = 789.94;
+            break;
+        case "ICE":
+            price = 54.23;
+            break;
+        default:
+            price = 0.0;
+     }       
+     
+     return price;
  }
  
- function getvalue(portfolio){
+ function getvalue(){
      var total = 0.0;
      for (var stock in portfolio){
-         var shares = portfolio[stock];
-         var price = getquotes(stock);
-         total += shares * price;
+        for (var i = 0; i < (portfolio.stockname).length; i = i+2) {
+                var price = getquotes((portfolio.stockname)[i]); 
+                var shares = (portfolio.stockname)[i+1];
+                console.log("stock name : "+ (portfolio.stockname)[i] +"number of shares  :"+(portfolio.stockname)[i+1]+"\nprice : "+price);
+                total += shares * price;
+        };
      }
-     return total;
+     document.getElementById("demo7").innerHTML = total.toString();
+     
  }
  
  function inheritance()
@@ -46,6 +85,9 @@ try{
      q.y = s.w;
      document.getElementById("demo4").innerHTML = q.y;
  }
+
+
+
 }
 catch(e)
 {
